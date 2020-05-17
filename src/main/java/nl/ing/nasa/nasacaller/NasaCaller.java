@@ -23,13 +23,6 @@ public class NasaCaller {
     @Autowired
     PropertiesSource propertiesSource;
 
-    private final String QUESTION_MARK = "?";
-    private final String AND = "&";
-    private final String PARAMETER_API_KEY = "api_key=";
-    private final String PARAMETER_SOL = "sol=";
-    private final String PARAMETER_CAMERA = "camera=";
-    private final String PHOTOS = "/photos";
-
     public NasaRoverResponse doCall(SearchParameters searchParameters) throws IOException {
         URL url = buildUrl(searchParameters);
 
@@ -40,8 +33,7 @@ public class NasaCaller {
 
         callPersistenceService.save(url, timeStartCall, timeEndCall);
 
-        NasaRoverResponse nasaRoverResponse = new Gson().fromJson(response, NasaRoverResponse.class);
-        return nasaRoverResponse;
+        return new Gson().fromJson(response, NasaRoverResponse.class);
 
     }
 
@@ -67,15 +59,21 @@ public class NasaCaller {
     private URL buildUrl(SearchParameters searchParameters) throws MalformedURLException {
         StringBuilder urlStringBuilder = new StringBuilder().append(propertiesSource.getNasaRoverUrl());
         urlStringBuilder.append(searchParameters.getRover().getName().toLowerCase());
-        urlStringBuilder.append(PHOTOS);
-        urlStringBuilder.append(QUESTION_MARK);
-        urlStringBuilder.append(PARAMETER_SOL);
+        String photos = "/photos";
+        urlStringBuilder.append(photos);
+        String questionmark = "?";
+        urlStringBuilder.append(questionmark);
+        String parameterSol = "sol=";
+        urlStringBuilder.append(parameterSol);
         urlStringBuilder.append(searchParameters.getSol());
-        urlStringBuilder.append(AND);
-        urlStringBuilder.append(PARAMETER_CAMERA);
+        String andSign = "&";
+        urlStringBuilder.append(andSign);
+        String parameterCamera = "camera=";
+        urlStringBuilder.append(parameterCamera);
         urlStringBuilder.append(searchParameters.getCamera().toString().toLowerCase());
-        urlStringBuilder.append(AND);
-        urlStringBuilder.append(PARAMETER_API_KEY);
+        urlStringBuilder.append(andSign);
+        String parameterApiKey = "api_key=";
+        urlStringBuilder.append(parameterApiKey);
         urlStringBuilder.append(propertiesSource.getApiKey());
 
         return new URL(urlStringBuilder.toString());

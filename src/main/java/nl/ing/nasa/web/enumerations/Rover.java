@@ -1,8 +1,5 @@
 package nl.ing.nasa.web.enumerations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public enum Rover {
     CURIOSITY("Curiosity"),
@@ -20,7 +17,7 @@ public enum Rover {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
