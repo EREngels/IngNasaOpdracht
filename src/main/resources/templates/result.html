@@ -8,7 +8,7 @@
 <h1>Resultaat</h1>
 <table th:if="${response} != null" align="center">
 <tr th:each="photo: ${response.photos}">
-    <td> <p> <img th:src="@{${photo.img_src}}"/> </p> </td>
+    <td> <p> <img th:src="@{${photo.imgSrc}}"/> </p> </td>
 </tr>
 </table>
 <a href="/">Opnieuw zoeken</a>

@@ -1,6 +1,7 @@
 package nl.ing.nasa.nasacaller;
 
 import com.google.gson.Gson;
+import nl.ing.nasa.nasacaller.dto.Photo;
 import nl.ing.nasa.persistence.CallPersistenceService;
 import nl.ing.nasa.nasacaller.dto.NasaRoverResponse;
 import nl.ing.nasa.web.dto.SearchParameters;
@@ -32,7 +33,7 @@ public class NasaCaller {
         long timeEndCall = System.currentTimeMillis();
 
         callPersistenceService.save(url, timeStartCall, timeEndCall);
-
+        
         return new Gson().fromJson(response, NasaRoverResponse.class);
 
     }

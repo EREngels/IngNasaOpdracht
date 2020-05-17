@@ -1,5 +1,6 @@
 package nl.ing.nasa.nasacaller.dto;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,11 +10,11 @@ import java.util.Date;
 public class Rover {
     @Getter @Setter private int id;
     @Getter @Setter private String name;
-    @Getter @Setter private Date landingDate;
-    @Getter @Setter private Date launchDate;
+    @Getter @Setter @SerializedName("landing_date") private Date landingDate;
+    @Getter @Setter @SerializedName("launch_date") private Date launchDate;
     @Getter @Setter private String status;
-    @Getter @Setter private int maxSol;
-    @Getter @Setter private Date maxDate;
-    @Getter @Setter private int totalPhotos;
-    @Getter @Setter private ArrayList<RoverCamera> roverCameras;
+    @Getter @Setter @SerializedName("max_sol") private int maxSol;
+    @Getter @Setter @SerializedName("max_date")private Date maxDate;
+    @Getter @Setter @SerializedName("total_photos")private int totalPhotos;
+    @Getter @Setter @SerializedName("rover_cameras")private ArrayList<RoverCamera> roverCameras;
 }

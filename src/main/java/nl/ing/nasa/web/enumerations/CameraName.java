@@ -18,7 +18,7 @@ public enum CameraName {
         this.name = name;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
