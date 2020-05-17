@@ -48,7 +48,7 @@ public class HtmlControllerTest {
         NasaRoverResponse nasaRoverResponse = new NasaRoverResponse();
         ArrayList<Photo> photos = new ArrayList<>();
         Photo photo = new Photo();
-        photo.setImg_src("http://test.nl");
+        photo.setImgSrc("http://test.nl");
         photos.add(photo);
 
         nasaRoverResponse.setPhotos(photos);

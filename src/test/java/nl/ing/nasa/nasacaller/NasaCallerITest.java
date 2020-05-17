@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class NasaCallerTest {
+class NasaCallerITest {
 
     @Autowired
     NasaCaller nasaCaller;
