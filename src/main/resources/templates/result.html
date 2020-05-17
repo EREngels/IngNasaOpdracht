@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultaat</title>
+</head>
+<body>
+<h1>Resultaat</h1>
+<table th:if="${response} != null" align="center">
+<tr th:each="photo: ${response.photos}">
+    <td> <p> <img th:src="@{${photo.img_src}}"/> </p> </td>
+</tr>
+</table>
+<a href="/">Opnieuw zoeken</a>
+</body>
+</body>
+</html>

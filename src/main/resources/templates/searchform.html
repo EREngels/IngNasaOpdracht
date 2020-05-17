@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>ING Nasa Zoekpagina</title>
+</head>
+<body>
+    <form action="#" th:action="@{/}" th:object="${searchParameters}" method="post">
+        <p>Rover:
+            <select name="rover">
+                <option th:each="roverOpt : ${T(nl.ing.nasa.web.enumerations.Rover).values()}"
+                        th:value="${roverOpt}" th:text="${roverOpt}"></option>
+            </select>
+        <p>Camera:
+        <select name="camera">
+            <option th:each="cameraOpt : ${T(nl.ing.nasa.web.enumerations.CameraName).values()}"
+                    th:value="${cameraOpt}" th:text="${cameraOpt.getName()}"></option>
+        </select></p>
+        <p>sol: <input type="text" th:field="*{sol}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
